@@ -1,0 +1,18 @@
+services:
+  tftp:
+    image: docker.io/pghalliday/tftp:latest
+    container_name: pxe-tftp
+    ports:
+      - "69:69/udp"
+    volumes:
+      - ./pxe-box/tftp:/var/tftpboot:Z
+    restart: unless-stopped
+
+  http:
+    image: docker.io/httpd:2.4-alpine
+    container_name: pxe-http
+    ports:
+      - "8080:80"
+    volumes:
+      - ./pxe-box/www:/usr/local/apache2/htdocs/:Z
+    restart: unless-stopped

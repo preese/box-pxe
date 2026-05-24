@@ -1,0 +1,6 @@
+#!ipxe
+:retry
+ifconf -c dhcp || goto retry
+echo "autoexec has started"
+# We point directly to the ipxe file
+chain http://${next-server}:8080/logic.ipxe
