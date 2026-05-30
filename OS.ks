@@ -21,8 +21,11 @@ autopart --type=btrfs
 network --bootproto=dhcp --device=link --activate
 
 # Use network installation
-repo --name="Roc Foss" --baseurl="https://mirror.krfoss.org/fedora/releases/44/Everything/x86_64/os/"
-url --url="http://192.168.10.26:8080/os"
+url --url="https://mirrors.kernel.org/fedora/releases/44/Everything/x86_64/os/"
+repo --name="fedora-updates" --baseurl="https://mirrors.kernel.org/fedora/updates/44/Everything/x86_64/"
+
+# repo --name="Roc-Foss" --baseurl="https://mirror.krfoss.org/fedora/releases/44/Everything/x86_64/os/"
+# url --url="http://192.168.10.15:8080/os"
 
 # Do not configure the X Window System
 # skipx

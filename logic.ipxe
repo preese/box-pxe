@@ -1,9 +1,11 @@
 #!ipxe
 
 echo "now in logic.ipxe"
-set repo http://192.168.10.26:8080
+set repo http://192.168.10.15:8080
 
-# kernel ${repo}/os/images/pxeboot/vmlinuz ip=dhcp inst.ks=${repo}/OS.ks inst.stage2=${repo}/os/images/install.img
-kernel ${repo}/os/images/pxeboot/vmlinuz ip=dhcp inst.ks=${repo}/OS.ks
+kernel ${repo}/os/images/pxeboot/vmlinuz ip=dhcp \
+inst.ks=${repo}/OS.ks \
+inst.stage2=${repo}/os/images/install.img
+
 initrd ${repo}/os/images/pxeboot/initrd.img
 boot
